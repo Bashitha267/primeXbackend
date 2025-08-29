@@ -11,6 +11,7 @@ const addwebProject = async (req, res) => {
       technologies,
       image,
       url,
+      publish,
       hostingStartDate,
       hostingEndDate,
       domainStartDate,
@@ -54,7 +55,7 @@ const addwebProject = async (req, res) => {
 // GET: Fetch all websites with selected fields
 const getWebSites = async (req, res) => {
   try {
-    const websites = await webModel.find({}, "title description technologies image url");
+    const websites = await webModel.find({publish:true}, "title description technologies image url");
 
     res.status(200).json({
       success: true,

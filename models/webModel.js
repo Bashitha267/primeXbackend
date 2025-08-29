@@ -60,9 +60,7 @@ const ProjectSchema = new mongoose.Schema(
 
     // 💰 Financial details
     total: {
-      price: {
-        type: Number,
-      },
+     type:Number
     },
     advance: {
       type: Number, // advance payment
@@ -90,6 +88,10 @@ const ProjectSchema = new mongoose.Schema(
       type: String,
       trim: true,
     },
+    publish:{
+      type:Boolean,
+      default:false,
+    }
   },
   { timestamps: true }
 );
