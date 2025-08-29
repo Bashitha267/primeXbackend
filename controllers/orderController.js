@@ -7,8 +7,7 @@ const addOrder = async (req, res) => {
     // Create and save the new Order document
     const {email,name,phone,projectDetails,service}=req.body
     const newOrder = await Order.create(req.body);
-    console.log(process.env.EMAIL)
-    console.log(process.env.PASSWORD)
+    
 
 
     const mailOptions = {
