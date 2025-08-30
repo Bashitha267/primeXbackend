@@ -18,6 +18,10 @@ const ProjectSchema = new mongoose.Schema(
       type: String,
       trim: true,
     },
+    package:{
+      type:String,
+      enum:['Spark','Lumina','Nexus','Apexium']
+    },
     //front end display
     title: {
       type: String,

@@ -4,6 +4,23 @@ import mongoose from "mongoose";
 const EventSchema = new mongoose.Schema(
   {
     //front end displaying
+     clientName: {
+      type: String,
+      trim: true,
+    },
+    clientEmail: {
+      type: String,
+      trim: true,
+      lowercase: true,
+    },
+    clientPhone: {
+      type: String,
+      trim: true,
+    },
+    package:{
+      type:String,
+      enum:['Spark','Lumina','Nexus','Apexium']
+    },
     eventName: {
       type: String,
       required: true,
@@ -28,6 +45,9 @@ const EventSchema = new mongoose.Schema(
       type: String,
       enum: ["planned", "completed", "cancelled"],
       default: "planned",
+    },
+    url:{
+      type:String
     },
     notes: {
       type: String,
@@ -55,7 +75,12 @@ const EventSchema = new mongoose.Schema(
       type: Date, // actual event date
       required: false,
     },
+     publish:{
+      type:Boolean,
+      default:false,
+    }
   },
+  
   { timestamps: true }
 );
 

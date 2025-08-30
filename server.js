@@ -1,6 +1,7 @@
 import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
+import fileUpload from "express-fileupload";
 import connectDB from "./config/mongodb.js";
 import routes from "./routes/routes.js";
 dotenv.config()
@@ -9,6 +10,15 @@ const PORT=5000
 // const mongodb_url=process.env.MONGODB_URL
 //middleware
 app.use(cors())
+app.use(
+  fileUpload({
+    useTempFiles: false,
+    
+   
+    limits: { fileSize: 40 * 1024 * 1024 }, // 10MB limit
+    abortOnLimit:false,
+  })
+);
 app.use(express.json())
 
 app.listen(PORT,()=>{
