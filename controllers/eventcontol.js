@@ -39,6 +39,22 @@ const getEvents = async (req, res) => {
   }
 };
 
+const getEventsbyCate=async (req,res)=>{
+   const {category}=req.params;
+   try{
+   const events=await EventModel.find({category:category},"eventName description eventLocation eventDate images url");
+     res.status(200).json({
+      success: true,
+      count: events.length,
+    events, 
+    });
+   }
+   catch(e){
+    console.log(e)
+    res.json({message:e,success:false})
+   }
+
+}
 
 
 
@@ -80,6 +96,20 @@ export const uploadImages = async (req, res) => {
     res.status(500).json({ success: false, error: "Image upload failed. Please try again." });
   }
 };
+// const deleteAllEvents = async () => {
+//   try {
+//     const result = await EventModel.deleteMany({});
+//  res.json({ success: true,deleted:result.deletedCount});
+//     console.log(`Deleted ${result.deletedCount} events`);
+//   } catch (error) {
+//     console.error("Error deleting events:", error);
+//   }
+// };
+export default { addEvent, getEvents,getEventsbyCate};
 
-export default { addEvent, getEvents };
+
+
+
+
+
 

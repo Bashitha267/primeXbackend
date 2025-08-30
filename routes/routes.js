@@ -7,7 +7,7 @@ import websiteController from '../controllers/webcontrol.js';
 
 const { addGraphic, getGraphics } = graphicControl;
 const { getWebSites, addwebProject } = websiteController;
-const { addEvent, getEvents } = eventcontol;
+const { addEvent, getEvents,getEventsbyCate } = eventcontol;
 const { getOrders, addOrder } = orderController;
 
 const router = express.Router();
@@ -31,5 +31,6 @@ router.post('/graphics/addgraphic', addGraphic);
 router.get('/graphics/getgraphics', getGraphics);
 router.get('/orders/getorders', getOrders);
 router.post('/orders/addorder', addOrder);
-
+router.get('/events/:category',getEventsbyCate);
+// router.delete('/events/all',deleteAllEvents)
 export default router;
