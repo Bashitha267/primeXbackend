@@ -35,9 +35,12 @@ const EventSchema = new mongoose.Schema(
       type: [String], // Array of image URLs/paths
       required: true,
     },
+    eventLocation:{
+      type:String
+    },
     category: {
       type: String,
-      enum: ["wedding", "conferences", "birthday", "live", "other","photoshoots"],
+      enum: ["wedding", "corparate", "celebrations", "live", "other"],
       default: "other",
     },
     //backend
