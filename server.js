@@ -9,7 +9,14 @@ const app=express();
 const PORT=5000
 // const mongodb_url=process.env.MONGODB_URL
 //middleware
-app.use(cors())
+app.use(cors({
+  origin: 'https://primexstudio.lk',   
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true                   
+}));
+
+app.options('*', cors());
 app.use(
   fileUpload({
     useTempFiles: false,
