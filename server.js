@@ -9,12 +9,7 @@ const app=express();
 const PORT=5000
 // const mongodb_url=process.env.MONGODB_URL
 //middleware
-app.use(cors({
-  origin: 'https://primexstudio.lk',   
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true                   
-}));
+app.use(express.json())
 
 
 app.use(
