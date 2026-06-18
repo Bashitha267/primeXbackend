@@ -11,13 +11,15 @@ const PORT=5000
 //middleware
 app.use(
   cors({
-    origin: "https://primexstudio.lk",  // ✅ your frontend domain
+    origin: [
+      "https://primexstudio.lk", 
+      "https://www.primexstudio.lk" // ✅ Added the www subdomain
+    ], 
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
   })
 );
-
 
 app.use(
   fileUpload({
